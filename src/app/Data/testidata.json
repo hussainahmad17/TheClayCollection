@@ -1,0 +1,21 @@
+[
+    {
+      "icon": "FcSalesPerformance",
+      "value": "10.5k",
+      "description": "Sellers active on our site",
+      "link": "/"
+    },
+    {
+ 
+        "icon": "<FaSellsy />",
+        "value": "10.5k",
+        "description": "Sellers active on our site",
+        "link": "/"
+      },{
+ 
+        "icon": "<FaSellsy />",
+        "value": "10.5k",
+        "description": "Sellers active on our site",
+        "link": "/"
+      }
+  ]

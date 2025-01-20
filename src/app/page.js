@@ -1,101 +1,214 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import { useState } from "react";
+import Carousel from "./(components)/Carousel/carousel";
+import HeadingBar from "./(components)/headingBar/headingBar.js";
+import CategoriesNav from "./(components)/categories/categoriesNav";
+import ProductsCarousel from "./(components)/ProductsCarousel/productsCarousel";
+import Link from "next/link";
+import Products from "./productdetails/productsData.json";
+import Card from "./(components)/Testimonial/Testimonial";
+import { FaRing, FaSellsy } from "react-icons/fa";
+import { GiCrystalEarrings, GiApothecary, GiDominoTiles } from "react-icons/gi";
+import { BiSolidDish } from "react-icons/bi";
+import { FaBowlRice } from "react-icons/fa6";
 
-export default function Home() {
+const Page = () => {
+  const testimonialData = [
+    {
+      icon: <FaSellsy />,
+      value: "10.5k",
+      description: "Sellers active on our site",
+      link: "/",
+    },
+    {
+      icon: <FaSellsy />,
+      value: "33k",
+      description: "Monthly Product Sale",
+      link: "/",
+    },
+    {
+      icon: <FaSellsy />,
+      value: "45.5k",
+      description: "Customers active on our site",
+      link: "/",
+    },
+    {
+      icon: <FaSellsy />,
+      value: "",
+      description: "Annual gross sale on our site",
+      link: "/",
+    },
+  ];
+
+  const Categories = [
+    {
+      icon: <FaRing />,
+      description: "",
+      value: "Decoration",
+      link: "/categories?category=Decoration",
+    },
+    {
+      icon: <GiCrystalEarrings />,
+      description: "",
+      value: "Jewelry",
+      link: "/categories?category=Jewelry",
+    },
+    {
+      icon: <GiDominoTiles />,
+      description: "",
+      value: "Marbles & Tiles",
+      link: "/categories?category=Tiles",
+    },
+    {
+      icon: <BiSolidDish />,
+      description: "",
+      value: "Crockery",
+      link: "/categories?category=Crockery",
+    },
+    {
+      icon: <FaBowlRice />,
+      description: "",
+      value: "Bowls",
+      link: "/categories?category=Bowl",
+    },
+  ];
+  const [results, setResults] = useState([]);
+  const filterProducts = (c) => {
+    let value = c.toLowerCase();
+    const filteredResults = Products.filter(item =>
+      item.Category.toLowerCase().includes(value) ||
+      item.Name.toLowerCase().includes(value) ||
+      item.Desp.toLowerCase().includes(value)
+    );
+    setResults(filteredResults);
+    handleSize(filteredResults.length);
+  };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="sm:px-5 md:px-10 lg:px-16">
+      {/* Hero Section */}
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[530px] mb-20 overflow-hidden relative">
+        <CategoriesNav />
+        <div className="lg:w-4/5 w-full overflow-hidden z-0">
+          <Carousel className="w-full max-w-full" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      {/* Featured Products Carousel */}
+      <div className="sm:px-0 px-5">
+        <ProductsCarousel
+          className="mt-20"
+          title="Featured Products"
+          heading="Most Popular"
+          Products={Products}
+          carouselId="PC1"
+        />
+
+        {/* View All Products Button */}
+        <div className="flex items-center justify-center w-full h-32 border-b-2 border-gray-200  mb-20">
+          <Link href="/products" className="py-3 px-10 bg-[#DB4444] text-white text-center">
+            View All Products
+          </Link>
+        </div>
+
+        {/* Categories Section */}
+        <HeadingBar title="Categories" heading="Browse By Category" className="" />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-16 border-b-2  border-gray-200 mb-20">
+          {Categories.map((data, index) => (
+            <Card key={index} data={data} />
+          ))}
+        </div>
+
+        {/* Best Selling Products Carousel */}
+        <ProductsCarousel
+          title="This Month"
+          heading="Best Selling Products"
+          Products={Products}
+          carouselId="PC2"
+        />
+
+        {/* Divider */}
+        <div className="border-b-2 border-gray-200 mt-6 mb-20 "></div>
+
+        {/* Explore Products Carousel */}
+        <ProductsCarousel
+          title="Our Products"
+          heading="Explore Our Products"
+          Products={Products}
+          carouselId="PC3"
+        />
+
+        {/* New Arrival Section */}
+        <HeadingBar title="Featured" heading="New Arrival" className="" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 min-h-[80vh] my-10 ">
+          <div
+            className="text-black bg-black text-center rounded-md row-span-2 col-span-1 sm:col-span-2 lg:col-span-2 p-6 opacity-80 flex items-end"
+            style={{
+              backgroundImage:
+                "url(./images/tea_set_a1001.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <CardText link='/productdetails?id=456795' />
+          </div>
+          <div
+            className="text-black bg-black text-center rounded-md col-span-1 sm:col-span-2 lg:col-span-2 p-6 opacity-80 flex items-end"
+            style={{
+              backgroundImage:
+                "url(./images/decor_a1001.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+           <CardText link='/productdetails?id=456789' />
+
+          </div>
+          <div
+            className="text-black bg-black text-center rounded-md p-6 opacity-80 flex items-end"
+            style={{
+              backgroundImage:
+                "url(./images/dish_set_1001.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <CardText link='/productdetails?id=123460' />
+
+          </div>
+          <div
+            className="text-black bg-black text-center rounded-md p-6 opacity-80 flex items-end"
+            style={{
+              backgroundImage:
+                "url(./images/dinner_set_a401.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <CardText link='/productdetails?id=890124' />
+          </div>
+        </div>
+      </div>
+    </main>
   );
+};
+
+const CardText = (prop) => {
+  console.log(prop.link);
+  return (
+    <div className="flex flex-col items-start justify-center text-sm">
+      <p className="text-black font-bold text-3xl">Top Seller</p>
+      <p className="text-black text-lg">100+ Reviews</p>
+      <Link className="text-black font-semibold text-xl" href={`${prop.link}`}>
+        Shop Now
+      </Link>
+    </div>
+  )
 }
+
+export default Page;
+
+
+
+
+
