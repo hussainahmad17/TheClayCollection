@@ -1,5 +1,5 @@
-"use client"
-import Link from "next/link";
+"use client";
+
 import React from "react";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
@@ -13,7 +13,6 @@ const page = () => {
     }
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center lg:text-left text-center lg:items-start p-8 lg:p-16">
-      {/* Contact Information Section */}
       <div className="my-auto lg:w-1/2 w-full">
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-2 flex items-center"><span className="mr-1 text-red-500 "><IoCall /></span>Call To Us</h2>

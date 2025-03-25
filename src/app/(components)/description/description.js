@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react";
 
-export default function Description({ product }, addToCart) {
+export default function Description({ product }) {
   const contact = "923094553362";
   if (!product) {
     return <>Searching for Product!!</>

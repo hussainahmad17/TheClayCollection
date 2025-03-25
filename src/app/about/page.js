@@ -1,84 +1,92 @@
-import React from 'react';
-import Image from 'next/image';
-import About from '/public/images/about.jpg';
-import Ceramic1 from '/public/images/bowl_set_a101.jpg';
-import Ceramic2 from '/public/images/dinner_set_a101.jpg';
-import Ceramic3 from '/public/images/dish_a701.jpg';
-import Ceramic4 from '/public/images/dish_a401.jpg';
-import Card from '../(components)/Testimonial/Testimonial';
-import { FcSalesPerformance } from 'react-icons/fc';
-import { BsCurrencyDollar } from 'react-icons/bs';
-import { FaShoppingBag } from 'react-icons/fa';
-import { FaLeaf, FaHandsHelping, FaTools } from 'react-icons/fa';
-import profiledata from '../(components)/Profile/profiles.json';
-import Profile from '../(components)/Profile/Profile';
-import Link from 'next/link';
-import HeadingBar from '../(components)/headingBar/headingBar';
+import React from "react";
+import Image from "next/image";
+import About from "/public/images/about.jpg";
+import Card from "../(components)/Testimonial/Testimonial";
+import { FcSalesPerformance } from "react-icons/fc";
+import { BsCurrencyDollar } from "react-icons/bs";
+import { FaShoppingBag } from "react-icons/fa";
+import { FaLeaf, FaHandsHelping, FaTools } from "react-icons/fa";
+import Profile from "../(components)/Profile/Profile";
+import Link from "next/link";
+import HeadingBar from "../(components)/headingBar/headingBar";
 
 const Page = () => {
   const testimonialData = [
     {
       icon: <FcSalesPerformance />,
-      value: '10.5k',
-      description: 'Sellers active on our site',
-      link: '/',
+      value: "10.5k",
+      description: "Sellers active on our site",
+      link: "/",
     },
     {
       icon: <BsCurrencyDollar />,
-      value: '33k',
-      description: 'Monthly Product Sale',
-      link: '/',
+      value: "33k",
+      description: "Monthly Product Sale",
+      link: "/",
     },
     {
       icon: <FaShoppingBag />,
-      value: '45.5k',
-      description: 'Customers active on our site',
-      link: '/',
+      value: "45.5k",
+      description: "Customers active on our site",
+      link: "/",
     },
   ];
 
   return (
     <>
-      <main className="px-6 sm:px-10 lg:px-20 py-10">
-
-        {/* Hero Section */}
-        <div className="relative bg-cover bg-center h-screen animate__animated animate__fadeIn animate__delay-1s" style={{ backgroundImage: `url(${About.src})` }}>
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 text-center text-white py-32 animate__animated animate__fadeInUp">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4 animate__animated animate__fadeInUp animate__delay-1s">Welcome to Our Story</h1>
-            <p className="text-xl sm:text-2xl mb-6 animate__animated animate__fadeInUp animate__delay-2s">
-              Discover the passion behind our handcrafted ceramics and unique products.
-            </p>
-            <Link href="/about" className="inline-block px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition duration-300 animate__animated animate__fadeInUp animate__delay-3s">
-              Learn More About Us
-            </Link>
-          </div>
+      {/* Hero Section */}
+      <div
+        className="relative flex items-center justify-center bg-cover bg-center h-screen"
+        style={{ backgroundImage: `url(${About.src})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 text-center text-white py-32">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            Welcome to Our Story
+          </h1>
+          <p className="text-xl sm:text-2xl mb-6">
+            Discover the passion behind our handcrafted ceramics and unique
+            products.
+          </p>
         </div>
+      </div>
 
+      <main className="px-6 sm:px-10 lg:px-20 py-10">
         {/* Features Section */}
-        <div className="features py-16 animate__animated animate__fadeInUp animate__delay-4s">
+        <div className="features py-16">
           <div className="container mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-10 animate__animated animate__fadeInUp animate__delay-5s">Why Choose Us</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-10">
+              Why Choose Us
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-              <div className="feature-item bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 animate__animated animate__fadeInUp animate__delay-6s">
-                <FaLeaf className="text-4xl text-green-500 mb-4 mx-auto animate__animated animate__zoomIn animate__delay-7s" />
-                <h3 className="text-2xl font-semibold mb-2">Sustainable Products</h3>
+              <div className="feature-item bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <FaLeaf className="text-4xl text-red-500 mb-4 mx-auto" />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Sustainable Products
+                </h3>
                 <p className="text-gray-700">
-                  We offer eco-friendly products that support a sustainable lifestyle.
+                  We offer eco-friendly products that support a sustainable
+                  lifestyle.
                 </p>
               </div>
-              <div className="feature-item bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 animate__animated animate__fadeInUp animate__delay-8s">
-                <FaTools className="text-4xl text-blue-500 mb-4 mx-auto animate__animated animate__zoomIn animate__delay-9s" />
-                <h3 className="text-2xl font-semibold mb-2">Expert Craftsmanship</h3>
+              <div className="feature-item bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <FaTools className="text-4xl text-red-500 mb-4 mx-auto" />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Expert Craftsmanship
+                </h3>
                 <p className="text-gray-700">
-                  Our ceramics are made with precision and care by expert artisans.
+                  Our ceramics are made with precision and care by expert
+                  artisans.
                 </p>
               </div>
-              <div className="feature-item bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 animate__animated animate__fadeInUp animate__delay-10s">
-                <FaHandsHelping className="text-4xl text-purple-500 mb-4 mx-auto animate__animated animate__zoomIn animate__delay-11s" />
-                <h3 className="text-2xl font-semibold mb-2">Customer Focused</h3>
+              <div className="feature-item bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <FaHandsHelping className="text-4xl text-red-500 mb-4 mx-auto" />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Customer Focused
+                </h3>
                 <p className="text-gray-700">
-                  We strive to provide an exceptional shopping experience and customer service.
+                  We strive to provide an exceptional shopping experience and
+                  customer service.
                 </p>
               </div>
             </div>
@@ -91,68 +99,85 @@ const Page = () => {
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div className="product-item relative group animate__animated animate__fadeInUp animate__delay-13s">
               <Image
-                src={Ceramic1}
+                src={"/images/bowl_set_a101.jpg"}
                 alt="Ceramic Item 1"
                 className="rounded-lg shadow-lg group-hover:scale-105 transition duration-300"
                 layout="responsive"
                 width={300}
                 height={200}
               />
-              <Link href="/products" className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300">
+              <Link
+                href="/products"
+                className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300"
+              >
                 <span className="text-xl font-semibold">View Product</span>
               </Link>
             </div>
             <div className="product-item relative group animate__animated animate__fadeInUp animate__delay-14s">
               <Image
-                src={Ceramic2}
+                src={"/images/dinner_set_a101.jpg"}
                 alt="Ceramic Item 2"
                 className="rounded-lg shadow-lg group-hover:scale-105 transition duration-300"
                 layout="responsive"
                 width={300}
                 height={200}
               />
-              <Link href="/products" className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300">
+              <Link
+                href="/products"
+                className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300"
+              >
                 <span className="text-xl font-semibold">View Product</span>
               </Link>
             </div>
             <div className="product-item relative group animate__animated animate__fadeInUp animate__delay-15s">
               <Image
-                src={Ceramic3}
+                src={"/images/dish_a701.jpg"}
                 alt="Ceramic Item 3"
                 className="rounded-lg shadow-lg group-hover:scale-105 transition duration-300"
                 layout="responsive"
                 width={300}
                 height={200}
               />
-              <Link href="/products" className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300">
+              <Link
+                href="/products"
+                className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300"
+              >
                 <span className="text-xl font-semibold">View Product</span>
               </Link>
             </div>
             <div className="product-item relative group animate__animated animate__fadeInUp animate__delay-16s">
               <Image
-                src={Ceramic4}
+                src={"/images/dish_a401.jpg"}
                 alt="Ceramic Item 4"
                 className="rounded-lg shadow-lg group-hover:scale-105 transition duration-300"
                 layout="responsive"
                 width={300}
                 height={200}
               />
-              <Link href="/products" className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300">
+              <Link
+                href="/products"
+                className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300"
+              >
                 <span className="text-xl font-semibold">View Product</span>
               </Link>
             </div>
           </div>
-          <div className="flex justify-center mt-8 animate__animated animate__fadeIn animate__delay-17s">
-            <Link href="/products" className="inline-block px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition duration-300">
+          <div className="flex justify-center mt-8">
+            <Link
+              href="/products"
+              className="inline-block px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition duration-300"
+            >
               View All Products
             </Link>
           </div>
         </div>
 
         {/* Testimonial Section */}
-        <div className="testimonial py-16 animate__animated animate__fadeInUp animate__delay-18s">
+        <div className="testimonial py-16">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold animate__animated animate__flipInX animate__delay-19s">Our Impact</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              Our Impact
+            </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {testimonialData.map((data, index) => (
@@ -162,18 +187,46 @@ const Page = () => {
         </div>
 
         {/* Profiles Section */}
-        <div className="profiles py-16 animate__animated animate__fadeInUp animate__delay-20s">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">Meet Our Team</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+        <div className="profiles py-16 animate__delay-20s">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
+            Meet Our Team
+          </h2>
+          <div className="px-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {profiledata.map((curele, index) => (
               <Profile key={index} data={curele} />
             ))}
           </div>
         </div>
-
       </main>
     </>
   );
 };
+
+const profiledata = [
+  {
+      "img": "/public/images/hussain.jpg",
+      "name": "Person A",
+      "desig": "Director",
+      "twitter": "FaXTwitter",
+      "instagram": "FaInstagram",
+      "linkedin": "FaLinkedinIn"
+  },
+  {
+      "img": "/public/images/hussain.jpg",
+      "name": "Person B",
+      "desig": "Manager",
+      "twitter": "FaXTwitter",
+      "instagram": "FaInstagram",
+      "linkedin": "FaLinkedinIn"
+  },
+  {
+      "img": "/public/images/hussain.jpg",
+      "name": "Person C",
+      "desig": "Assistant Manager",
+      "twitter": "FaXTwitter",
+      "instagram": "FaInstagram",
+      "linkedin": "FaLinkedinIn"
+  }
+]
 
 export default Page;

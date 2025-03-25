@@ -33,8 +33,8 @@ const ProductsCarousel = ({ title, heading, carouselId, Products }) => {
                     id={carouselId}
                     style={{ scrollBehavior: "smooth", scrollbarWidth: "none" }}
                 >
-                    {Products.map((product) => (
-                        <Productcard key={product.ProductID} product={product} />
+                    {Products.map((product, index) => (
+                        <Productcard key={product.ProductID ?? index} product={product} />
                     ))}
                 </div>
             </div>

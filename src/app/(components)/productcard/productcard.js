@@ -16,14 +16,15 @@ const ProductCard = ({ product }) => {
   return (
     <div className="min-w-[240px] bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300 relative">
       <div className="relative">
-        <div className="absolute top-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+        <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
           -{( (product.Discount / product.Price) * 100 ).toFixed(0)}%
 
         </div>
 
 
         <div className="absolute top-2 right-2 flex space-x-2">
-          <button
+          {/* Not available in this version */}
+          {/* <button
             className={`bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200 ${product.favourite ? "text-red-500" : "text-black"}`}
           >
             <i className="fa-solid fa-heart"></i>
@@ -31,7 +32,7 @@ const ProductCard = ({ product }) => {
 
           <button className="bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200">
             <i className="fa-regular fa-eye"></i>
-          </button>
+          </button> */}
         </div>
         <Image
           onClick={handleProduct}
